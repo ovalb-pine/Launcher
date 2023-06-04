@@ -35,7 +35,7 @@ void loadPack(Pack& v, QJsonObject& obj)
 static void loadPackBuildMod(PackBuildMod& b, QJsonObject& obj)
 {
     b.name = Json::requireString(obj, "name");
-    b.version = Json::requireString(obj, "version");
+    b.version = Json::ensureString(obj, "version", "");
     b.md5 = Json::requireString(obj, "md5");
     b.url = Json::requireString(obj, "url");
 }
